@@ -9,50 +9,20 @@ import android.widget.ImageView;
 import android.widget.LinearLayout;
 import android.widget.RadioGroup;
 import android.widget.Spinner;
+import android.widget.TextView;
 import android.widget.Toast;
 
 public class MainActivity extends Activity {
-
     @Override
-    protected void onCreate(Bundle savedInstanceState) {
+    public void onCreate(Bundle savedInstanceState) {
         super.onCreate(savedInstanceState);
         setContentView(R.layout.activity_main);
-
-        final RadioGroup group1 = (RadioGroup) findViewById(R.id.orientation);
-        group1.setOnCheckedChangeListener(new RadioGroup.OnCheckedChangeListener() {
-            @Override
-            public void onCheckedChanged(RadioGroup group, int checkedId) {
-                switch (checkedId) {
-                    case R.id.Horizontal:
-                        group.setOrientation(LinearLayout.HORIZONTAL);
-                        break;
-                    case R.id.Vertical:
-                        group.setOrientation(LinearLayout.VERTICAL);
-                        break;
-                }
-            }
-        });
-
-        Spinner spinner = (Spinner) findViewById(R.id.spinner);
-        ArrayAdapter<CharSequence> adapter = ArrayAdapter.createFromResource(this,
-                R.array.ides_array, android.R.layout.simple_spinner_dropdown_item);
-        adapter.setDropDownViewResource(android.R.layout.simple_spinner_dropdown_item);
-        spinner.setAdapter(adapter);
-
-
-    }
-    public void onClick (View view) {
-        EditText input = (EditText) findViewById(R.id.main_input);
-        String string = input.getText().toString();
-        Toast.makeText(this, string, Toast.LENGTH_LONG).show();
-
-        findViewById(R.id.button3).setOnClickListener(new View.OnClickListener() {
-            @Override
-            public void onClick(View v) {
-                final ImageView imageView = (ImageView) findViewById(R.id.myicon);
-                imageView.setImageResource(R.mipmap.ic_tethering);
-            }
-        });
+        TextView view =        (TextView) findViewById(R.id.TextView02);
+        String s="";
+        for (int i=0; i < 500; i++) {
+            s += "vogella.com ";
+        }
+        view.setText(s);
     }
 }
 
