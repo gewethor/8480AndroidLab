@@ -5,6 +5,7 @@ import android.os.Bundle;
 import android.view.View;
 import android.widget.ArrayAdapter;
 import android.widget.EditText;
+import android.widget.ImageView;
 import android.widget.LinearLayout;
 import android.widget.RadioGroup;
 import android.widget.Spinner;
@@ -38,10 +39,20 @@ public class MainActivity extends Activity {
         adapter.setDropDownViewResource(android.R.layout.simple_spinner_dropdown_item);
         spinner.setAdapter(adapter);
 
+
     }
     public void onClick (View view) {
         EditText input = (EditText) findViewById(R.id.main_input);
         String string = input.getText().toString();
         Toast.makeText(this, string, Toast.LENGTH_LONG).show();
+
+        findViewById(R.id.button3).setOnClickListener(new View.OnClickListener() {
+            @Override
+            public void onClick(View v) {
+                final ImageView imageView = (ImageView) findViewById(R.id.myicon);
+                imageView.setImageResource(R.mipmap.ic_tethering);
+            }
+        });
     }
 }
+
